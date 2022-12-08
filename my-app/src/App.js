@@ -1,12 +1,10 @@
-import React from "react";
-import { useState, useEffect } from React;
+import { useState, useEffect } from "react";
 
 function App() {
-  function MyComponent() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
-    const [filterParam, setFilterParam] = useState(["All"]);
+    const [filterParam] = useState(["All"]);
     const [q, setQ] = useState("");
     const [searchParam] = useState("name");
     useEffect(() => {
@@ -66,7 +64,7 @@ function App() {
             </label>
           </div>
           <ul className="card-grid">
-            {items.map((item) => (
+            {search(items).map((item) => (
               <li>
                 <article className="card" key={item.callingCodes}>
                   <div className="card-content">
@@ -94,5 +92,5 @@ function App() {
       );
     }
   }
-}
+
 export default App;
